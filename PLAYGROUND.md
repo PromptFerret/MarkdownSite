@@ -1,6 +1,6 @@
 # Playground — All Supported Markdown Features
 
-This document demonstrates every rendering feature supported by the Resource Viewer. Each feature shows the raw markdown syntax followed by the rendered result.
+This document demonstrates every rendering feature supported by MarkdownSite. Each feature shows the raw markdown syntax followed by the rendered result.
 
 ---
 

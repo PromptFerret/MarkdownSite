@@ -1,3 +1,3 @@
-# Resource Viewer
+# MarkdownSite
 
 *Markdown document browser*

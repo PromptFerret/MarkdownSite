@@ -1,4 +1,4 @@
-# Resource Viewer
+# MarkdownSite
 
 A markdown document browser. Drop your `.md` files alongside this viewer and browse them with working cross-document links. Designed to work with Obsidian vault exports and any collection of interlinked markdown files.
 
@@ -8,9 +8,9 @@ Documents load via the URL hash fragment. The hash is stripped, `.md` is appende
 
 | URL | Loads |
 |---|---|
-| `resource_viewer/` | `WELCOME.md` (this page) |
-| `resource_viewer/#my-doc` | `my-doc.md` |
-| `resource_viewer/#notes/combat` | `notes/combat.md` |
+| `MarkdownSite/` | `WELCOME.md` (this page) |
+| `MarkdownSite/#my-doc` | `my-doc.md` |
+| `MarkdownSite/#notes/combat` | `notes/combat.md` |
 
 If no hash is provided, the viewer defaults to `WELCOME.md`. If a document is not found, an error message is shown in the content area.
 
@@ -19,7 +19,7 @@ If no hash is provided, the viewer defaults to `WELCOME.md`. If a document is no
 Place your `.md` files in the same directory as `index.html`, or organize them into subdirectories. The viewer resolves all paths relative to its own location. Optional customization files control the header, footer, and theme.
 
 ```
-resource_viewer/
+MarkdownSite/
 ├── index.html          ← the viewer
 ├── WELCOME.md          ← default page (no hash)
 ├── HEADER.md           ← optional: rendered above toolbar

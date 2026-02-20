@@ -1,4 +1,4 @@
-# Resource Viewer
+# MarkdownSite
 
 ## What This Is
 
@@ -9,9 +9,9 @@ A single self-contained HTML file (`index.html`) that renders markdown documents
 ### Hash Routing
 
 ```
-resource_viewer/#subfolder/my-doc
+MarkdownSite/#subfolder/my-doc
                  └─ hash ──────┘
-Fetches: subfolder/my-doc.md (relative to resource_viewer/)
+Fetches: subfolder/my-doc.md (relative to MarkdownSite/)
 ```
 
 - `window.location.hash` → strip `#` → append `.md` → `fetch()`
