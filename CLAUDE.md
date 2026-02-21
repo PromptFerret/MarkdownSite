@@ -1,5 +1,9 @@
 # MarkdownSite
 
+## Text Rules
+
+**ASCII only for punctuation.** Never use em dashes (`U+2014`), en dashes (`U+2013`), curly/smart double quotes (`U+201C`, `U+201D`), or curly/smart single quotes (`U+2018`, `U+2019`). Use the plain keyboard equivalents: `-`, `"`, `'`. This applies to all files - code, documentation, comments, strings, and markup.
+
 ## What This Is
 
 A single self-contained HTML file (`index.html`) that renders markdown documents loaded via URL hash. Drop it alongside a folder of `.md` files (e.g., an Obsidian vault export) and browse them with working cross-document links.
@@ -59,7 +63,7 @@ All link rewriting happens at render time in `inlineFormat()`, using the current
 | `[[doc\|Display]]` | Link text = `Display`, href = `#doc` |
 | `[[doc#heading]]` | Link to `#doc` + scroll to heading |
 
-**Paths must be explicit** — no vault-wide filename search. Bare `[[filename]]` resolves relative to the current document's folder only.
+**Paths must be explicit** - no vault-wide filename search. Bare `[[filename]]` resolves relative to the current document's folder only.
 
 ### Image Resolution
 
@@ -76,7 +80,7 @@ All link rewriting happens at render time in `inlineFormat()`, using the current
 
 Hand-rolled line-by-line parser. Two main functions:
 
-### `mdToHTML(md, basePath)` — Block-Level Processing
+### `mdToHTML(md, basePath)` - Block-Level Processing
 
 State machine iterating lines, tracking open block contexts:
 
@@ -94,29 +98,29 @@ State machine iterating lines, tracking open block contexts:
 
 **Variable-length fenced code blocks**: Opening fence length is tracked. Only a closing fence with equal or greater backtick count closes the block. This allows 4-backtick fences to wrap 3-backtick content (used in PLAYGROUND.md).
 
-### `inlineFormat(text, basePath)` — Inline Processing
+### `inlineFormat(text, basePath)` - Inline Processing
 
 Regex-based, applied to all non-code content. **Order matters**:
 
 1. HTML escape (`&`, `<`, `>`, `"`)
-2. Inline code (`` `text` ``) — extracted to placeholders to prevent inner formatting
-3. Images (`![alt](src)`) — resolve src relative to basePath
-4. Links (`[text](href)`) — rewrite per strategy above
-5. Wikilinks (`[[target]]`, `[[target|display]]`) — rewrite per strategy above
+2. Inline code (`` `text` ``) - extracted to placeholders to prevent inner formatting
+3. Images (`![alt](src)`) - resolve src relative to basePath
+4. Links (`[text](href)`) - rewrite per strategy above
+5. Wikilinks (`[[target]]`, `[[target|display]]`) - rewrite per strategy above
 6. Bold+italic (`***text***`)
 7. Bold (`**text**`)
 8. Italic (`*text*`)
 9. Strikethrough (`~~text~~`)
 10. Restore inline code placeholders
 
-### `flushBlockquote()` — Callout Detection
+### `flushBlockquote()` - Callout Detection
 
 When a blockquote is flushed, the first line is checked for callout syntax `[!type]` or `[!type]-`. If matched:
 - Type is resolved via `CALLOUT_TYPE_MAP` (handles aliases)
 - Icon looked up from `CALLOUT_ICONS` (emoji-based, no FontAwesome)
 - `-` modifier creates a collapsible callout (starts collapsed, click header to toggle)
-- Title is optional — if omitted, only the icon shows in the header
-- **Content is rendered via recursive `mdToHTML()`** — supports full block elements (lists, tables, code blocks, headings, HRs) inside callouts
+- Title is optional - if omitted, only the icon shows in the header
+- **Content is rendered via recursive `mdToHTML()`** - supports full block elements (lists, tables, code blocks, headings, HRs) inside callouts
 
 If no callout syntax, renders as a plain `<blockquote>`.
 
@@ -126,9 +130,9 @@ If no callout syntax, renders as a plain `<blockquote>`.
 
 | Type | Aliases | Icon |
 |---|---|---|
-| note | — | pencil |
+| note | - | pencil |
 | abstract | tldr | page |
-| summary | — | book |
+| summary | - | book |
 | info | todo | info |
 | tip | hint, important | fire |
 | success | check, done | check |
@@ -136,10 +140,10 @@ If no callout syntax, renders as a plain `<blockquote>`.
 | warning | caution, attention | warning |
 | failure | fail, missing | cross |
 | danger | error | lightning |
-| bug | — | bug |
-| example | — | clipboard |
+| bug | - | bug |
+| example | - | clipboard |
 | quote | cite | quote |
-| statblock | — | dice |
+| statblock | - | dice |
 
 ### Statblock Callout
 
@@ -151,9 +155,9 @@ Special D&D parchment styling: `#fdf1dc` background, Georgia serif font, dark re
 [Rendered] [Source] | [Thin] [Normal] [Wide]  ──────  [Copy Link]
 ```
 
-- **Rendered / Source** — toggle between rendered markdown and raw source (`<pre><code>`)
-- **Thin / Normal / Wide** — document max-width: 600px / 800px / 1200px
-- **Copy Link** — copies current URL (with hash) to clipboard
+- **Rendered / Source** - toggle between rendered markdown and raw source (`<pre><code>`)
+- **Thin / Normal / Wide** - document max-width: 600px / 800px / 1200px
+- **Copy Link** - copies current URL (with hash) to clipboard
 - State persists across document navigations (view mode, width)
 - Button styles scoped to `.toolbar button` to avoid bleeding into copy buttons
 
@@ -161,15 +165,15 @@ Special D&D parchment styling: `#fdf1dc` background, Georgia serif font, dark re
 
 Post-render DOM enhancement via `enhanceCopyButtons()`:
 
-- **Code blocks** (`<pre>`) — clipboard icon, top-right, visible on hover (opacity 0.15 → 0.7)
-- **Images** (`<img>`) — wrapped in `.image-container`, copies image URL, dark backdrop button
-- **Inline code** (`<code>` inside p/li/td/th/blockquote/callout) — tiny button, appears on hover
+- **Code blocks** (`<pre>`) - clipboard icon, top-right, visible on hover (opacity 0.15 → 0.7)
+- **Images** (`<img>`) - wrapped in `.image-container`, copies image URL, dark backdrop button
+- **Inline code** (`<code>` inside p/li/td/th/blockquote/callout) - tiny button, appears on hover
 
 All use SVG clipboard icon → checkmark on success (1.5s timeout).
 
 ## Customization Files
 
-On init, the viewer fetches optional customization files in parallel. All are optional — missing files (404) are silently ignored.
+On init, the viewer fetches optional customization files in parallel. All are optional - missing files (404) are silently ignored.
 
 | File | Purpose | Loaded by |
 |---|---|---|
@@ -188,11 +192,11 @@ On init, the viewer fetches optional customization files in parallel. All are op
 
 ### Style Override (STYLE.css / ?style=NAME)
 
-- `loadStyle()` runs independently of `loadChrome()` — always loads, even with `?chrome=false`
+- `loadStyle()` runs independently of `loadChrome()` - always loads, even with `?chrome=false`
 - Default: fetches `STYLE.css`
 - With `?style=NORD`: fetches `NORD.css` instead
 - Fetched CSS is injected as a `<style>` tag appended to `<head>`, after the built-in styles
-- Later source order means it only overrides what it explicitly declares — all other styles remain
+- Later source order means it only overrides what it explicitly declares - all other styles remain
 - Minimal theme override only needs `:root` variable redefinitions
 
 ### Query Parameters
@@ -229,27 +233,27 @@ Both params can be combined: `?chrome=false&style=NORD#PLAYGROUND`
 Same shared PromptFerret dark theme (`--bg`, `--surface`, `--accent`, etc.).
 
 Additional document-specific styles:
-- `.document` — max-width 800px (adjustable via toolbar), centered, readable line-height
-- Code blocks — darker background (`#0a0a12`), monospace, scrollable
-- Inline code — surface2 background, rounded
-- Blockquotes — accent left border, muted text
-- Links — accent color, underline on hover
-- Images — max-width 100%, rounded corners
-- Callouts — 14 color schemes, collapsible via CSS `.collapsed` class
-- Statblock — parchment theme overriding dark theme colors
-- Copy buttons — absolute positioned, opacity transitions, SVG icons
+- `.document` - max-width 800px (adjustable via toolbar), centered, readable line-height
+- Code blocks - darker background (`#0a0a12`), monospace, scrollable
+- Inline code - surface2 background, rounded
+- Blockquotes - accent left border, muted text
+- Links - accent color, underline on hover
+- Images - max-width 100%, rounded corners
+- Callouts - 14 color schemes, collapsible via CSS `.collapsed` class
+- Statblock - parchment theme overriding dark theme colors
+- Copy buttons - absolute positioned, opacity transitions, SVG icons
 
 ## Key Decisions
 
-- **No external dependencies** — parser is hand-rolled, not a library
-- **No file index** — wikilinks require explicit paths, no vault search
-- **No sidebar/navigation** — purely URL-driven
-- **No build step** — single HTML file, edit and refresh
-- **No embedded HTML** — all content is escaped, HTML tags render as text
-- **Requires HTTP** — uses fetch(), will not work from file://
-- **Hash routing** — document path in fragment, never hits server
-- **Recursive callout content** — callout bodies go through full `mdToHTML`, enabling block elements inside callouts
-- **Toolbar scoped styles** — button CSS uses `.toolbar button` selector to avoid bleeding into copy buttons
-- **Markdown-driven chrome** — header and footer loaded from `HEADER.md` / `FOOTER.md`, not hardcoded; delete either file for a chrome-free viewer
-- **CSS theme override** — `STYLE.css` or `?style=NAME` injects custom CSS after built-in styles; only overrides what it declares
-- **Query param persistence** — `?chrome=false` and `?style=NAME` survive hash navigation since query precedes fragment in URLs
+- **No external dependencies** - parser is hand-rolled, not a library
+- **No file index** - wikilinks require explicit paths, no vault search
+- **No sidebar/navigation** - purely URL-driven
+- **No build step** - single HTML file, edit and refresh
+- **No embedded HTML** - all content is escaped, HTML tags render as text
+- **Requires HTTP** - uses fetch(), will not work from file://
+- **Hash routing** - document path in fragment, never hits server
+- **Recursive callout content** - callout bodies go through full `mdToHTML`, enabling block elements inside callouts
+- **Toolbar scoped styles** - button CSS uses `.toolbar button` selector to avoid bleeding into copy buttons
+- **Markdown-driven chrome** - header and footer loaded from `HEADER.md` / `FOOTER.md`, not hardcoded; delete either file for a chrome-free viewer
+- **CSS theme override** - `STYLE.css` or `?style=NAME` injects custom CSS after built-in styles; only overrides what it declares
+- **Query param persistence** - `?chrome=false` and `?style=NAME` survive hash navigation since query precedes fragment in URLs

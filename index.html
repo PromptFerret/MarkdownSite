@@ -13,15 +13,15 @@
     <link rel="canonical" href="https://promptferret.github.io/MarkdownSite/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="MarkdownSite — Markdown Document Browser">
-    <meta property="og:description" content="Single-file markdown viewer with Obsidian wikilinks, callouts, custom themes, and cross-document linking. No build step, no dependencies — just drop your .md files and serve.">
+    <meta property="og:title" content="MarkdownSite - Markdown Document Browser">
+    <meta property="og:description" content="Single-file markdown viewer with Obsidian wikilinks, callouts, custom themes, and cross-document linking. No build step, no dependencies - just drop your .md files and serve.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://promptferret.github.io/MarkdownSite/">
     <meta property="og:site_name" content="PromptFerret Tools">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="MarkdownSite — Markdown Document Browser">
+    <meta name="twitter:title" content="MarkdownSite - Markdown Document Browser">
     <meta name="twitter:description" content="Single-file markdown viewer with Obsidian wikilinks, callouts, custom themes, and cross-document linking. Zero dependencies.">
 
     <!-- Cache Control -->
@@ -758,7 +758,7 @@ const CALLOUT_ICONS = {
 };
 
 // ═══════════════════════════════════════════════════════════════
-// ── Markdown Parser — Block Level ──
+// ── Markdown Parser - Block Level ──
 // ═══════════════════════════════════════════════════════════════
 
 function mdToHTML(md, basePath) {
@@ -864,7 +864,7 @@ function mdToHTML(md, basePath) {
       continue;
     }
 
-    // ── Table separator row — skip ──
+    // ── Table separator row - skip ──
     if (/^\|[\s:_-]+\|/.test(line) && !line.match(/[a-zA-Z0-9]/)) {
       i++;
       continue;
@@ -949,7 +949,7 @@ function mdToHTML(md, basePath) {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// ── Markdown Parser — Inline Formatting ──
+// ── Markdown Parser - Inline Formatting ──
 // ═══════════════════════════════════════════════════════════════
 
 function inlineFormat(text, basePath) {
@@ -958,7 +958,7 @@ function inlineFormat(text, basePath) {
   // HTML escape
   text = escapeHTML(text);
 
-  // Inline code — extract first to prevent inner formatting
+  // Inline code - extract first to prevent inner formatting
   // Replace backtick spans with placeholders, then restore after all other formatting
   const codeSpans = [];
   text = text.replace(/`([^`]+?)`/g, (_, code) => {

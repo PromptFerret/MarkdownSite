@@ -40,9 +40,9 @@ MarkdownSite/
 
 Standard markdown links to `.md` files are automatically rewritten to use hash routing. A link like `[Combat Rules](rules/combat.md)` becomes a click that navigates to `#rules/combat` without a page reload.
 
-Obsidian-style wikilinks are also supported. `[[rules/combat]]` and `[[rules/combat|Combat Rules]]` both work. Paths must be explicit — there is no vault-wide filename search, so `[[combat]]` only resolves relative to the current document's folder.
+Obsidian-style wikilinks are also supported. `[[rules/combat]]` and `[[rules/combat|Combat Rules]]` both work. Paths must be explicit - there is no vault-wide filename search, so `[[combat]]` only resolves relative to the current document's folder.
 
-Cross-document anchors work too — `[link](other.md#section)` navigates to the document and scrolls to the heading.
+Cross-document anchors work too - `[link](other.md#section)` navigates to the document and scrolls to the heading.
 
 ## Images
 
@@ -53,7 +53,7 @@ Relative image paths resolve from the document's folder. External images (`https
 Supports 14 Obsidian-compatible callout types with optional collapsible variants:
 
 > [!tip] Example Callout
-> Content here with full markdown support — lists, tables, code blocks, etc.
+> Content here with full markdown support - lists, tables, code blocks, etc.
 
 Types: `note`, `abstract`/`tldr`, `summary`, `info`/`todo`, `tip`/`hint`/`important`, `success`/`check`/`done`, `question`/`help`/`faq`, `warning`/`caution`, `failure`/`fail`, `danger`/`error`, `bug`, `example`, `quote`/`cite`, `statblock` (D&D parchment theme)
 
@@ -61,21 +61,21 @@ Add a `-` after the type for collapsible callouts: `> [!warning]- Click to expan
 
 ## Copy Buttons
 
-Copy buttons appear on code blocks, images, and inline code — hover to reveal them.
+Copy buttons appear on code blocks, images, and inline code - hover to reveal them.
 
 ## Toolbar
 
-- **Rendered / Source** — toggle between rendered markdown and raw source
-- **Thin / Normal / Wide** — document max-width: 600px / 800px / 1200px
-- **Copy Link** — copies current URL (with hash) to clipboard
+- **Rendered / Source** - toggle between rendered markdown and raw source
+- **Thin / Normal / Wide** - document max-width: 600px / 800px / 1200px
+- **Copy Link** - copies current URL (with hash) to clipboard
 
 ## Customization
 
 The viewer is fully customizable without editing `index.html`:
 
-- **HEADER.md** — If present, rendered as the page header above the toolbar. Delete it for no header.
-- **FOOTER.md** — If present, rendered as the page footer below the content. Delete it for no footer.
-- **STYLE.css** — If present, injected after the built-in styles. Override just the CSS variables you want to change — everything else keeps its defaults.
+- **HEADER.md** - If present, rendered as the page header above the toolbar. Delete it for no header.
+- **FOOTER.md** - If present, rendered as the page footer below the content. Delete it for no footer.
+- **STYLE.css** - If present, injected after the built-in styles. Override just the CSS variables you want to change - everything else keeps its defaults.
 
 ### Minimal Theme Override
 
@@ -101,11 +101,11 @@ Both can be combined: `?chrome=false&style=NORD#my-doc`. Query parameters persis
 
 ## Requirements
 
-This viewer uses `fetch()` to load markdown files, so it **must be served over HTTP**. It will not work from `file://`. Any local HTTP server works — `python -m http.server`, VS Code Live Server, etc.
+This viewer uses `fetch()` to load markdown files, so it **must be served over HTTP**. It will not work from `file://`. Any local HTTP server works - `python -m http.server`, VS Code Live Server, etc.
 
 ## Playground
 
-See the [Playground](PLAYGROUND.md) for a full demo of every supported markdown feature — headings, text formatting, links, images, code blocks, lists, blockquotes, callouts, tables, and mixed content.
+See the [Playground](PLAYGROUND.md) for a full demo of every supported markdown feature - headings, text formatting, links, images, code blocks, lists, blockquotes, callouts, tables, and mixed content.
 
 ---
 

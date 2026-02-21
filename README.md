@@ -9,7 +9,7 @@ A single-file markdown document browser. Drop it alongside a folder of `.md` fil
 - Renders markdown files loaded via URL hash routing
 - Supports standard markdown links, Obsidian `[[wikilinks]]`, and cross-document anchors
 - 14 callout types (with collapsible variants) including a D&D statblock callout
-- Customizable header, footer, and theme — all without editing `index.html`
+- Customizable header, footer, and theme - all without editing `index.html`
 - Copy buttons on code blocks, images, and inline code
 
 ## Quick Start
@@ -58,7 +58,7 @@ Documents are loaded via the URL hash fragment:
 | `your-site/#my-notes` | `my-notes.md` |
 | `your-site/#campaign/session-01` | `campaign/session-01.md` |
 
-No page reloads — navigation is handled entirely client-side.
+No page reloads - navigation is handled entirely client-side.
 
 ## Links and Wikilinks
 
@@ -72,11 +72,11 @@ Standard markdown links to `.md` files are automatically rewritten to use hash r
 [link](other.md#section)             → cross-doc with anchor
 ```
 
-Wikilink paths must be explicit — there is no vault-wide filename search.
+Wikilink paths must be explicit - there is no vault-wide filename search.
 
 ## Customization
 
-All customization works by adding files alongside `index.html` — no need to edit the HTML:
+All customization works by adding files alongside `index.html` - no need to edit the HTML:
 
 | File | Purpose |
 |---|---|
@@ -112,7 +112,7 @@ Supports 14 Obsidian-compatible callout types:
 
 ```markdown
 > [!tip] My Tip
-> Content here with full markdown support — lists, tables, code blocks, etc.
+> Content here with full markdown support - lists, tables, code blocks, etc.
 
 > [!warning]- Collapsible Warning
 > Starts collapsed. Click header to expand.
@@ -124,7 +124,7 @@ Types: `note`, `abstract`/`tldr`, `summary`, `info`/`todo`, `tip`/`hint`/`import
 
 MarkdownSite uses hash routing (`#path/to/doc`), which means:
 - Search engines only index the base page, not individual documents
-- Meta tags (title, description, og:tags) are static — they describe the viewer, not individual documents
+- Meta tags (title, description, og:tags) are static - they describe the viewer, not individual documents
 - Link previews will show the viewer's metadata, not the linked document's content
 
 This makes MarkdownSite ideal for **internal docs, knowledge bases, campaign notes, and documentation** where search engine discoverability isn't needed. If you need SEO, use a static site generator instead.
@@ -133,13 +133,13 @@ If you host your own instance, update the `<title>` and meta tags in `index.html
 
 ## Toolbar
 
-- **Rendered / Source** — toggle between rendered markdown and raw source
-- **Thin / Normal / Wide** — document max-width: 600px / 800px / 1200px
-- **Copy Link** — copies current URL (with hash) to clipboard
+- **Rendered / Source** - toggle between rendered markdown and raw source
+- **Thin / Normal / Wide** - document max-width: 600px / 800px / 1200px
+- **Copy Link** - copies current URL (with hash) to clipboard
 
 ## Contributing
 
-Single HTML file — no build step, no package manager. Edit `index.html` and refresh.
+Single HTML file - no build step, no package manager. Edit `index.html` and refresh.
 
 1. Fork the repo
 2. Make your changes to `index.html`
@@ -152,7 +152,7 @@ Use `PLAYGROUND.md` to test all supported markdown features.
 
 ## License
 
-[MIT License](LICENSE) — Copyright (c) 2026 PromptFerret
+[MIT License](LICENSE) - Copyright (c) 2026 PromptFerret
 
 ## Links
 

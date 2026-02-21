@@ -1,4 +1,4 @@
-# Playground — All Supported Markdown Features
+# Playground - All Supported Markdown Features
 
 This document demonstrates every rendering feature supported by MarkdownSite. Each feature shows the raw markdown syntax followed by the rendered result.
 
@@ -156,13 +156,13 @@ def fibonacci(n):
 
 ````
 ```
-Plain code block — no language specified.
+Plain code block - no language specified.
   Indentation is preserved.
 ```
 ````
 
 ```
-Plain code block — no language specified.
+Plain code block - no language specified.
   Indentation is preserved.
 ```
 
@@ -346,11 +346,11 @@ Plain code block — no language specified.
 
 ```
 > [!warning] Warning
-> Be careful — this operation may have side effects.
+> Be careful - this operation may have side effects.
 ```
 
 > [!warning] Warning
-> Be careful — this operation may have side effects.
+> Be careful - this operation may have side effects.
 
 ```
 > [!caution] Caution
@@ -420,11 +420,11 @@ Plain code block — no language specified.
 
 ```
 > [!quote] Quote
-> "The best way to predict the future is to invent it." — Alan Kay
+> "The best way to predict the future is to invent it." - Alan Kay
 ```
 
 > [!quote] Quote
-> "The best way to predict the future is to invent it." — Alan Kay
+> "The best way to predict the future is to invent it." - Alan Kay
 
 ### Summary
 
@@ -604,7 +604,7 @@ ___
 
 ## Mixed Content
 
-Callouts support full block-level content — lists, tables, and code blocks all work inside them.
+Callouts support full block-level content - lists, tables, and code blocks all work inside them.
 
 ````
 > [!example]- Mixed Content Inside a Callout
@@ -640,4 +640,4 @@ Callouts support full block-level content — lists, tables, and code blocks all
 
 ---
 
-*End of playground — all supported features demonstrated above.*
+*End of playground - all supported features demonstrated above.*
