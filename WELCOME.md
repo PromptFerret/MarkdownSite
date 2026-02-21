@@ -1,6 +1,8 @@
 # MarkdownSite
 
-A markdown document browser. Drop your `.md` files alongside this viewer and browse them with working cross-document links. Designed to work with Obsidian vault exports and any collection of interlinked markdown files.
+A single-file markdown document browser. Drop your `.md` files alongside this viewer and browse them with working cross-document links, Obsidian wikilinks, callouts, and custom themes. No build step, no dependencies.
+
+For full documentation, see the [README](README.md).
 
 ## Hash Routing
 
@@ -40,13 +42,32 @@ Standard markdown links to `.md` files are automatically rewritten to use hash r
 
 Obsidian-style wikilinks are also supported. `[[rules/combat]]` and `[[rules/combat|Combat Rules]]` both work. Paths must be explicit — there is no vault-wide filename search, so `[[combat]]` only resolves relative to the current document's folder.
 
+Cross-document anchors work too — `[link](other.md#section)` navigates to the document and scrolls to the heading.
+
 ## Images
 
 Relative image paths resolve from the document's folder. External images (`https://...`) load directly. Images are styled to fit within the document width.
 
-## In-Page Anchors
+## Callouts
 
-All headings automatically get anchor IDs. A link like `[Jump to section](#my-heading)` scrolls to the heading without changing the document. Cross-document anchors work too — `[link](other.md#section)` navigates to the document and scrolls to the heading.
+Supports 14 Obsidian-compatible callout types with optional collapsible variants:
+
+> [!tip] Example Callout
+> Content here with full markdown support — lists, tables, code blocks, etc.
+
+Types: `note`, `abstract`/`tldr`, `summary`, `info`/`todo`, `tip`/`hint`/`important`, `success`/`check`/`done`, `question`/`help`/`faq`, `warning`/`caution`, `failure`/`fail`, `danger`/`error`, `bug`, `example`, `quote`/`cite`, `statblock` (D&D parchment theme)
+
+Add a `-` after the type for collapsible callouts: `> [!warning]- Click to expand`
+
+## Copy Buttons
+
+Copy buttons appear on code blocks, images, and inline code — hover to reveal them.
+
+## Toolbar
+
+- **Rendered / Source** — toggle between rendered markdown and raw source
+- **Thin / Normal / Wide** — document max-width: 600px / 800px / 1200px
+- **Copy Link** — copies current URL (with hash) to clipboard
 
 ## Customization
 
@@ -55,6 +76,19 @@ The viewer is fully customizable without editing `index.html`:
 - **HEADER.md** — If present, rendered as the page header above the toolbar. Delete it for no header.
 - **FOOTER.md** — If present, rendered as the page footer below the content. Delete it for no footer.
 - **STYLE.css** — If present, injected after the built-in styles. Override just the CSS variables you want to change — everything else keeps its defaults.
+
+### Minimal Theme Override
+
+A custom theme only needs to redefine the CSS variables it wants to change:
+
+```css
+:root {
+  --bg: #2e3440;
+  --surface: #3b4252;
+  --accent: #88c0d0;
+  --text: #eceff4;
+}
+```
 
 ### Query Parameters
 
