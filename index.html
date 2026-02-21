@@ -620,8 +620,6 @@ function resolvePath(href, basePath) {
     prev = resolved;
     resolved = resolved.replace(/[^/]+\/\.\.\//g, '');
   } while (resolved !== prev);
-  // Strip any unresolvable leading ../ (already at root)
-  resolved = resolved.replace(/^(\.\.\/)+/g, '');
   resolved = resolved.replace(/\.\//g, '');
   return resolved;
 }
