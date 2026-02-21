@@ -613,15 +613,17 @@ function resolvePath(href, basePath) {
   if (!href || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('/') || href.startsWith('#')) {
     return href;
   }
-  // Resolve ../ segments
-  let resolved = basePath + href;
-  let prev;
-  do {
-    prev = resolved;
-    resolved = resolved.replace(/[^/]+\/\.\.\//g, '');
-  } while (resolved !== prev);
-  resolved = resolved.replace(/\.\//g, '');
-  return resolved;
+  const parts = (basePath + href).split('/');
+  const out = [];
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i] === '' || parts[i] === '.') continue;
+    if (parts[i] === '..' && out.length > 0 && out[out.length - 1] !== '..') {
+      out.pop();
+    } else {
+      out.push(parts[i]);
+    }
+  }
+  return out.join('/');
 }
 
 async function loadDocument() {
