@@ -3,6 +3,7 @@
 A single-file markdown document browser. Drop it alongside a folder of `.md` files and browse them with working cross-document links, Obsidian wikilinks, callouts, and custom themes. No build step, no dependencies.
 
 **Live:** [promptferret.github.io/MarkdownSite](https://promptferret.github.io/MarkdownSite/)
+**Discord:** [Join our Discord](https://discord.gg/xed4bCazym) for support, discussion, and additional resources.
 
 ## What It Does
 
